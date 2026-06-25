@@ -7,149 +7,301 @@
   <meta name="description" content="APPROX-IA 2027: Approximation, Human Judgments and LLMs — Call for Abstracts. Thematic workshop at Maison des Sciences de l’Homme de Bordeaux, 25–26 March 2027.">
   <style>
     :root {
-      --bg: #f7f6f2;
+      --bg: #f6f3ed;
       --text: #1f2933;
-      --muted: #5f6b76;
-      --border: #d8d2c4;
-      --card: #ffffff;
-      --accent: #5c3f8c;
-      --accent-light: #efe9f8;
+      --muted: #66717d;
+      --border: #d8d1c4;
+      --card: #fffdf9;
+      --accent: #4b3f72;
+      --accent-dark: #31294d;
+      --accent-light: #eee8f6;
+      --shadow: 0 18px 45px rgba(31, 41, 51, 0.08);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(238, 232, 246, 0.95), transparent 34rem),
+        linear-gradient(180deg, #fbfaf7 0%, var(--bg) 42%, var(--bg) 100%);
     }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.16em;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
     header {
-      padding: 4rem 1.25rem 3rem;
-      background: linear-gradient(135deg, var(--accent-light), #ffffff);
+      padding: 4.25rem 1.25rem 3.25rem;
       border-bottom: 1px solid var(--border);
     }
-    main, .header-inner {
-      max-width: 980px;
+
+    main,
+    .header-inner,
+    footer {
+      max-width: 1080px;
       margin: 0 auto;
     }
-    h1 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.1;
-      margin: 0 0 1rem;
-      letter-spacing: -0.035em;
-    }
-    h2 {
-      font-size: 1.65rem;
-      margin-top: 2.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-    h3 {
-      margin-top: 1.75rem;
-      font-size: 1.15rem;
-    }
-    p { margin: 1rem 0; }
-    a { color: var(--accent); }
-    ul { padding-left: 1.4rem; }
-    li { margin: 0.4rem 0; }
-    .subtitle {
-      font-size: 1.25rem;
-      color: var(--muted);
-      margin: 0.5rem 0 1.5rem;
-    }
-    .badge {
+
+    .eyebrow {
       display: inline-block;
-      padding: 0.25rem 0.65rem;
+      padding: 0.32rem 0.75rem;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: var(--card);
+      background: rgba(255, 253, 249, 0.82);
       font-size: 0.9rem;
       color: var(--muted);
       margin-bottom: 1.2rem;
     }
-    .notice {
-      margin-top: 1.5rem;
-      padding: 1rem 1.1rem;
-      background: var(--card);
-      border-left: 4px solid var(--accent);
-      border-radius: 0.5rem;
-    }
-    .info-grid {
+
+    .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin: 2rem 0;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: 2.2rem;
+      align-items: center;
     }
-    .info-card {
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 4.45rem);
+      line-height: 1.04;
+      margin: 0 0 1rem;
+      letter-spacing: -0.045em;
+      color: var(--accent-dark);
+    }
+
+    .subtitle {
+      font-size: 1.22rem;
+      color: var(--muted);
+      margin: 0.4rem 0 1.7rem;
+      max-width: 760px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin: 1.8rem 0 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.72rem 1.05rem;
+      border-radius: 0.55rem;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .button:hover {
+      color: #fff;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .button.secondary {
+      color: var(--accent);
+      background: rgba(255, 253, 249, 0.65);
+      border-color: var(--border);
+    }
+
+    .button.secondary:hover {
+      color: var(--accent-dark);
+      background: #fff;
+    }
+
+    .art-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1rem;
+      border-radius: 1rem;
+      padding: 0.72rem;
+      box-shadow: var(--shadow);
     }
+
+    .art-card img {
+      display: block;
+      width: 100%;
+      border-radius: 0.72rem;
+      border: 1px solid rgba(216, 209, 196, 0.8);
+    }
+
+    .caption {
+      margin: 0.65rem 0.25rem 0.15rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(210px, 1fr));
+      gap: 1rem;
+      margin: 2.15rem 0 0;
+    }
+
+    .info-card {
+      background: rgba(255, 253, 249, 0.82);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.05rem;
+    }
+
     .info-card strong {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.07em;
       color: var(--muted);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.38rem;
     }
+
     main {
-      padding: 2rem 1.25rem 4rem;
-      background: var(--bg);
+      padding: 2.25rem 1.25rem 4rem;
     }
+
     section {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 1rem;
-      padding: 1.25rem 1.4rem;
-      margin: 1.25rem 0;
+      padding: 1.45rem 1.6rem;
+      margin: 1.35rem 0;
+      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.035);
     }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.75rem;
+      margin: 0 0 1rem;
+      color: var(--accent-dark);
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    ul {
+      padding-left: 1.35rem;
+      margin: 0.8rem 0;
+    }
+
+    li {
+      margin: 0.45rem 0;
+    }
+
     .timeline {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .timeline li {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.6rem 0;
+      padding: 0.72rem 0;
       border-bottom: 1px solid var(--border);
     }
-    .timeline li:last-child { border-bottom: 0; }
+
+    .timeline li:last-child {
+      border-bottom: 0;
+    }
+
     .organizer {
       margin-bottom: 1rem;
     }
-    .organizer strong { display: block; }
+
+    .organizer strong {
+      display: block;
+      color: var(--accent-dark);
+    }
+
     footer {
-      max-width: 980px;
-      margin: 0 auto;
       padding: 2rem 1.25rem 4rem;
       color: var(--muted);
       font-size: 0.95rem;
     }
-    @media (max-width: 640px) {
-      header { padding-top: 2.5rem; }
-      section { padding: 1rem; }
-      .timeline li { display: block; }
+
+    @media (max-width: 820px) {
+      header {
+        padding-top: 2.8rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .art-card {
+        max-width: 520px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 1.15rem;
+      }
+
+      .timeline li {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <span class="badge">Call for Abstracts</span>
-      <h1>APPROX-IA 2027: Approximation, Human Judgments and LLMs</h1>
-      <p class="subtitle">Thematic workshop — Maison des Sciences de l’Homme de Bordeaux, France</p>
-      <div class="info-grid">
-        <div class="info-card"><strong>Dates</strong>25–26 March 2027<br><span class="muted">half-day on 26 March</span></div>
-        <div class="info-card"><strong>Venue</strong>Maison des Sciences de l’Homme de Bordeaux, France</div>
-        <div class="info-card"><strong>Submission platform</strong>OpenReview — submission link forthcoming</div>
-        <div class="info-card"><strong>Review process</strong>Double-blind</div>
+      <span class="eyebrow">Call for Abstracts</span>
+      <div class="hero">
+        <div>
+          <h1>APPROX-IA 2027: Approximation, Human Judgments and LLMs</h1>
+          <p class="subtitle">Thematic workshop — Maison des Sciences de l’Homme de Bordeaux, France</p>
+          <div class="actions">
+            <a class="button" href="https://openreview.net/group?id=APPROX-IA/2027/Workshop">Submit via OpenReview</a>
+            <a class="button secondary" href="#submission">Submission guidelines</a>
+          </div>
+        </div>
+
+        <figure class="art-card">
+          <img src="seurat.jpg" alt="Georges Seurat, Landscape at Saint-Ouen">
+          <figcaption class="caption">
+            Georges Seurat, <em>Landscape at Saint-Ouen</em>. The Metropolitan Museum of Art, Public Domain.
+          </figcaption>
+        </figure>
       </div>
-      <div class="notice">
-        This is a temporary page for the APPROX-IA 2027 Call for Abstracts. The official MSHBx page and the OpenReview submission link will be announced shortly.
+
+      <div class="info-grid">
+        <div class="info-card">
+          <strong>Dates</strong>
+          25–26 March 2027<br>
+          half-day on 26 March
+        </div>
+        <div class="info-card">
+          <strong>Venue</strong>
+          Maison des Sciences de l’Homme de Bordeaux, France
+        </div>
+        <div class="info-card">
+          <strong>Submission platform</strong>
+          <a href="https://openreview.net/group?id=APPROX-IA/2027/Workshop">OpenReview submission page</a>
+        </div>
       </div>
     </div>
   </header>
@@ -199,7 +351,7 @@
 
     <section id="submission">
       <h2>Submission and review process</h2>
-      <p>Submissions should be anonymized and uploaded as PDF files through OpenReview. The submission link is currently being created and will be announced shortly.</p>
+      <p>Submissions should be anonymized and uploaded as PDF files through <a href="https://openreview.net/group?id=APPROX-IA/2027/Workshop">OpenReview</a>.</p>
       <p>The review process will be double-blind. Abstracts should therefore not include author names, affiliations, acknowledgements or any other self-identifying information. References to the authors’ own previous work should be made in the third person whenever necessary.</p>
       <p>Submissions should fall into one of the following categories:</p>
       <ul>
@@ -238,9 +390,6 @@
         Utrecht Institute of Linguistics OTS, Utrecht University<br>
         <a href="mailto:f.e.martin@uu.nl">f.e.martin@uu.nl</a>
       </div>
-      <p><strong>Project website:</strong><br>
-        <a href="https://www.mshbx.fr/approx-ia-adverbes-dapproximation-jugements-pragmatiques-et-plausibilite-cognitive-chez-les-humains-et-lia/">MSHBx APPROX-IA project page</a>
-      </p>
     </section>
   </main>
 
