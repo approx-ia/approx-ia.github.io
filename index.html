@@ -233,6 +233,40 @@
       color: var(--accent-dark);
     }
 
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+
+    .person {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.8rem;
+      background: rgba(255, 253, 249, 0.72);
+    }
+
+    .person strong {
+      display: block;
+      color: var(--accent-dark);
+      font-size: 1.05rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .person span {
+      display: block;
+      line-height: 1.4;
+    }
+
+    .person small {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
     footer {
       padding: 2rem 1.25rem 4rem;
       color: var(--muted);
@@ -262,6 +296,10 @@
 
       .timeline li {
         display: block;
+      }
+
+      .people-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -370,6 +408,56 @@
         <li><span>Notification</span><strong>10 February 2027</strong></li>
         <li><span>Workshop</span><strong>25–26 March 2027</strong></li>
       </ul>
+    </section>
+
+
+    <section id="network">
+      <h2>APPROX-IA research network</h2>
+      <p>The APPROX-IA project brings together researchers from linguistics, psycholinguistics and computational linguistics. Current participants include:</p>
+
+      <div class="people-grid">
+        <div class="person">
+          <strong>Lucia Tovena</strong>
+          <span>Université Paris Cité</span>
+          <small>Linguistics</small>
+        </div>
+
+        <div class="person">
+          <strong>Jacques Jayez</strong>
+          <span>ENS de Lyon</span>
+          <small>Linguistics</small>
+        </div>
+
+        <div class="person">
+          <strong>Sebastian Padó</strong>
+          <span>Institute for Natural Language Processing (IMS), University of Stuttgart</span>
+          <small>Computational linguistics</small>
+        </div>
+
+        <div class="person">
+          <strong>Thomas Weskott</strong>
+          <span>University of Göttingen</span>
+          <small>Psycholinguistics</small>
+        </div>
+
+        <div class="person">
+          <strong>Christopher Piñón</strong>
+          <span>STL — Savoirs, Textes, Langage, Université de Lille</span>
+          <small>Linguistics</small>
+        </div>
+
+        <div class="person">
+          <strong>Despina Oikonomou</strong>
+          <span>Department of Philology, University of Crete</span>
+          <small>Linguistics &amp; psycholinguistics</small>
+        </div>
+
+        <div class="person">
+          <strong>Nabil Hathout</strong>
+          <span>CLLE, CNRS &amp; Université Toulouse Jean Jaurès</span>
+          <small>Computational linguistics</small>
+        </div>
+      </div>
     </section>
 
     <section id="organizers">
