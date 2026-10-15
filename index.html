@@ -3,465 +3,297 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>APPROX-IA 2027 — Call for Abstracts</title>
-  <meta name="description" content="APPROX-IA 2027: Approximation, Human Judgments and LLMs — Call for Abstracts. Thematic workshop at Maison des Sciences de l’Homme de Bordeaux, 25–26 March 2027.">
+  <title>APPROX-IA 2027 — Approximation, Human Judgments and LLMs</title>
+  <meta name="description" content="APPROX-IA 2027: Approximation, Human Judgments and LLMs. Thematic workshop at Maison des Sciences de l’Homme de Bordeaux, 25–26 March 2027.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
-
     :root {
-      --bg: #f3f0ea;
-      --paper: #fbfaf7;
-      --paper-soft: rgba(251, 250, 247, 0.78);
-      --text: #1d2430;
-      --muted: #66707c;
-      --line: #d9d3c8;
-      --accent: #66558f;
-      --accent-dark: #382b5c;
-      --accent-soft: #ede8f6;
-      --gold: #b8955f;
-      --shadow: 0 22px 60px rgba(36, 31, 48, 0.08);
-      --shadow-soft: 0 10px 30px rgba(36, 31, 48, 0.045);
-      --radius-lg: 22px;
-      --radius-md: 15px;
+      --bg: #f6f1ea;
+      --text: #242220;
+      --muted: #746d66;
+      --line: #d8d0c6;
+      --accent: #7a2f3a;
+      --accent-soft: #f1e4e5;
+      --max: 1100px;
+      --reading: 790px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.7;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at 8% 2%, rgba(102, 85, 143, 0.12), transparent 32rem),
-        radial-gradient(circle at 92% 12%, rgba(184, 149, 95, 0.10), transparent 28rem),
-        linear-gradient(180deg, #f8f6f1 0%, var(--bg) 42%, #f0ece5 100%);
-      min-height: 100vh;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.18;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.28) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: linear-gradient(to bottom, black, transparent 70%);
-      z-index: -1;
+      font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.68;
     }
 
     a {
       color: var(--accent);
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.17em;
+      text-underline-offset: 2px;
     }
 
-    a:hover {
-      color: var(--accent-dark);
-    }
-
-    .top-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(217, 211, 200, 0.82);
-      background: rgba(248, 246, 241, 0.82);
-      backdrop-filter: blur(20px) saturate(145%);
-      -webkit-backdrop-filter: blur(20px) saturate(145%);
-    }
-
-    .nav-inner,
-    .header-inner,
-    main,
-    footer {
-      width: min(1120px, calc(100% - 2.5rem));
+    .container {
+      width: min(var(--max), calc(100% - 36px));
       margin: 0 auto;
     }
 
-    .nav-inner {
-      min-height: 66px;
+    /* NAVIGATION */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246,241,234,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 58px;
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
+
+    .nav::-webkit-scrollbar { display: none; }
 
     .brand {
       flex: 0 0 auto;
-      color: var(--accent-dark);
       text-decoration: none;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.35rem;
+      color: var(--text);
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1;
+      letter-spacing: -.02em;
+      margin-right: auto;
     }
 
-    .brand span {
-      display: block;
-      margin-top: 0.25rem;
-      font-family: "Manrope", sans-serif;
-      font-size: 0.60rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.1rem;
-      min-width: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .nav-links::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav-links a {
+    .nav a:not(.brand) {
       flex: 0 0 auto;
-      padding: 0.5rem 0.62rem;
-      border-radius: 999px;
-      color: #343a46;
       text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 650;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+      color: #494944;
+      font-size: .84rem;
     }
 
-    .nav-links a:hover {
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      transform: translateY(-1px);
+    .nav a:not(.brand):hover {
+      color: var(--accent);
     }
 
-    .nav-links .nav-submit {
-      margin-left: 0.35rem;
-      padding-inline: 0.82rem;
-      background: var(--accent-dark);
-      color: #fff;
-      box-shadow: 0 7px 18px rgba(56, 43, 92, 0.18);
-    }
-
-    .nav-links .nav-submit:hover {
+    .nav .submit {
+      color: white !important;
       background: var(--accent);
-      color: #fff;
+      padding: 6px 11px;
+      border-radius: 4px;
+      font-weight: 700;
     }
 
-    header {
-      padding: 5.2rem 0 3.4rem;
+    /* HERO */
+    .hero {
+      padding: 78px 0 56px;
       border-bottom: 1px solid var(--line);
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.36rem 0.78rem;
-      border: 1px solid rgba(102, 85, 143, 0.20);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.56);
-      color: var(--accent-dark);
-      font-size: 0.77rem;
-      font-weight: 700;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 4px rgba(184, 149, 95, 0.12);
-    }
-
-    .hero {
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-      gap: 3.4rem;
-      align-items: center;
-      margin-top: 1.6rem;
-    }
-
-    h1, h2 {
-      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      color: var(--accent-dark);
+      grid-template-columns: minmax(0, 1.45fr) minmax(260px, .55fr);
+      gap: 64px;
+      align-items: start;
     }
 
     h1 {
-      max-width: 800px;
-      margin: 0 0 1.25rem;
-      font-size: clamp(3rem, 6.3vw, 5.7rem);
-      line-height: 0.93;
-      letter-spacing: -0.055em;
+      font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
       font-weight: 700;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin: 0 0 22px;
+      max-width: 760px;
     }
 
-    .subtitle {
+    .lead {
       max-width: 720px;
-      margin: 0.4rem 0 1.6rem;
+      margin: 0 0 26px;
       color: var(--muted);
-      font-size: 1.15rem;
-      line-height: 1.6;
+      font-size: 1.16rem;
     }
 
-    .actions {
+    .meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 2rem;
+      gap: 10px 28px;
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: .92rem;
     }
 
-    .button {
-      display: inline-block;
-      padding: 0.78rem 1.05rem;
-      border: 1px solid var(--accent-dark);
-      border-radius: 999px;
-      background: var(--accent-dark);
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.9rem;
+    .meta strong {
+      display: block;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 26px;
+    }
+
+    .hero-actions a {
       font-weight: 700;
-      box-shadow: 0 8px 20px rgba(56, 43, 92, 0.14);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      font-size: .92rem;
     }
 
-    .button:hover {
-      transform: translateY(-1px);
+    .hero-actions .primary {
+      text-decoration: none;
+      color: white;
       background: var(--accent);
-      color: #fff;
-      box-shadow: 0 12px 28px rgba(56, 43, 92, 0.19);
+      padding: 9px 13px;
+      border-radius: 4px;
     }
 
-    .button.secondary {
-      color: var(--accent-dark);
-      background: rgba(255, 255, 255, 0.50);
-      border-color: var(--line);
-      box-shadow: none;
-    }
-
-    .button.secondary:hover {
-      color: var(--accent-dark);
-      background: #fff;
-    }
-
-    .art-card {
-      position: relative;
-      overflow: hidden;
+    figure {
       margin: 0;
-      border: 1px solid rgba(217, 211, 200, 0.9);
-      border-radius: var(--radius-lg);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-      transform: rotate(1.1deg);
     }
 
-    .art-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.42);
-      border-radius: inherit;
-    }
-
-    .art-card img {
+    .hero-image img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 5;
+      height: auto;
+      max-height: 430px;
       object-fit: cover;
-      filter: saturate(0.90) contrast(0.97);
     }
 
-    .caption {
-      margin: 0;
-      padding: 0.85rem 1rem 0.95rem;
+    figcaption {
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 0.74rem;
+      font-size: .72rem;
       line-height: 1.45;
-      background: rgba(251, 250, 247, 0.92);
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(210px, 1fr));
-      gap: 0.85rem;
-      margin-top: 3rem;
-    }
-
-    .info-card {
-      position: relative;
-      overflow: hidden;
-      padding: 1.15rem 1.2rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.55);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .info-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 54px;
-      height: 3px;
-      background: var(--gold);
-    }
-
-    .info-card strong {
-      display: block;
-      margin-bottom: 0.38rem;
-      color: var(--muted);
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
+    /* MAIN CONTENT */
     main {
-      padding: 2.8rem 0 5rem;
+      padding: 18px 0 70px;
     }
 
     section {
-      position: relative;
-      margin: 1.15rem 0;
-      padding: 2.1rem 2.25rem;
-      border: 1px solid rgba(217, 211, 200, 0.88);
-      border-radius: var(--radius-lg);
-      background: var(--paper-soft);
-      box-shadow: var(--shadow-soft);
-      scroll-margin-top: 5.6rem;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      left: 2.25rem;
-      top: 0;
-      width: 72px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      border-radius: 999px;
-    }
-
-    h2 {
-      margin: 0 0 1rem;
-      font-size: clamp(2rem, 3vw, 2.65rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 1rem 0;
-    }
-
-    ul {
-      padding-left: 1.3rem;
-      margin: 0.9rem 0 0;
-    }
-
-    li {
-      margin: 0.5rem 0;
-      padding-left: 0.15rem;
-    }
-
-    .timeline {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .timeline li {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: baseline;
-      gap: 1rem;
-      padding: 0.85rem 0;
+      scroll-margin-top: 74px;
+      padding: 54px 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .timeline li:last-child {
+    section:last-child {
       border-bottom: 0;
     }
 
-    .timeline strong {
-      color: var(--accent-dark);
-      font-size: 0.96rem;
+    h2 {
+      font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+      font-weight: 650;
+      margin: 0 0 24px;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
     }
 
-    .people-grid {
+    .prose {
+      max-width: var(--reading);
+    }
+
+    .prose p {
+      margin: 0 0 18px;
+    }
+
+    .questions {
+      max-width: 900px;
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .questions li {
+      margin: 0 0 13px;
+      padding-left: 3px;
+    }
+
+    .topics {
+      columns: 2;
+      column-gap: 42px;
+      max-width: 900px;
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .topics li {
+      break-inside: avoid;
+      margin: 0 0 10px;
+    }
+
+    .submission-types {
+      max-width: 800px;
+      margin: 24px 0;
+    }
+
+    .submission-types p {
+      margin: 7px 0;
+    }
+
+    .dates {
+      max-width: 760px;
+    }
+
+    .date {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin-top: 1.35rem;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .date:last-child {
+      border-bottom: 0;
+    }
+
+    .network {
+      max-width: 900px;
     }
 
     .person {
-      position: relative;
-      min-height: 112px;
-      padding: 1.05rem 1.15rem 1.05rem 1.3rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.52);
-      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 26px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .person:hover {
-      transform: translateY(-2px);
-      border-color: rgba(102, 85, 143, 0.32);
-      box-shadow: 0 12px 28px rgba(36, 31, 48, 0.07);
-    }
-
-    .person::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 1rem;
-      bottom: 1rem;
-      width: 3px;
-      border-radius: 999px;
-      background: var(--accent);
-      opacity: 0.72;
+    .person:last-child {
+      border-bottom: 0;
     }
 
     .person strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      color: var(--accent-dark);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.35rem;
-      line-height: 1.1;
+      font-weight: 700;
     }
 
     .person span {
-      display: block;
       color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
+    }
+
+    .organizers {
+      max-width: 900px;
     }
 
     .organizer {
-      padding: 0.9rem 0;
+      padding: 14px 0 18px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -471,202 +303,151 @@
 
     .organizer strong {
       display: block;
-      color: var(--accent-dark);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.3rem;
-      line-height: 1.2;
+      font-size: 1.02rem;
+      margin-bottom: 2px;
+    }
+
+    .organizer .aff {
+      color: var(--muted);
+      margin-bottom: 3px;
     }
 
     footer {
-      padding: 0 0 4.5rem;
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    footer p {
-      padding-top: 1.6rem;
       border-top: 1px solid var(--line);
+      padding: 26px 0 44px;
+      color: var(--muted);
+      font-size: .82rem;
     }
 
-    @media (max-width: 980px) {
-      .nav-inner {
-        width: 100%;
-        padding: 0.7rem 1rem;
-      }
-
-      .nav-links a {
-        font-size: 0.75rem;
-      }
-
-      .hero {
-        grid-template-columns: 1fr 320px;
-        gap: 2.2rem;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .nav-inner {
-        min-height: 58px;
-      }
-
-      .brand {
-        font-size: 1.12rem;
-      }
-
-      .brand span {
-        display: none;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      header {
-        padding-top: 3.2rem;
-      }
-
-      .hero {
+    @media (max-width: 850px) {
+      .hero-grid {
         grid-template-columns: 1fr;
+        gap: 34px;
       }
 
-      .art-card {
+      .hero-image {
         max-width: 520px;
-        transform: none;
       }
 
-      .art-card img {
-        aspect-ratio: 16 / 10;
+      .hero-image img {
+        max-height: 320px;
       }
 
-      .info-grid {
+      .person {
         grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 1.5rem 1.25rem;
-        border-radius: 18px;
-      }
-
-      section::before {
-        left: 1.25rem;
-      }
-
-      .people-grid {
-        grid-template-columns: 1fr;
+        gap: 2px;
       }
     }
 
-    @media (max-width: 560px) {
-      .nav-inner,
-      .header-inner,
-      main,
-      footer {
-        width: min(100% - 1.25rem, 1120px);
+    @media (max-width: 620px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
       }
 
-      .nav-inner {
-        width: 100%;
-      }
-
-      .brand {
-        display: none;
-      }
-
-      .nav-links {
-        margin-left: 0;
+      .hero {
+        padding-top: 48px;
       }
 
       h1 {
-        font-size: clamp(2.8rem, 15vw, 4.15rem);
+        font-size: 3rem;
       }
 
-      .subtitle {
-        font-size: 1rem;
+      .topics {
+        columns: 1;
       }
 
-      .timeline li {
-        display: block;
+      .date {
+        grid-template-columns: 1fr;
+        gap: 0;
       }
 
-      .timeline strong {
-        display: block;
-        margin-top: 0.2rem;
+      .date strong {
+        margin-top: 2px;
+      }
+
+      .brand {
+        margin-right: 4px;
       }
     }
   </style>
 </head>
-<body>
 
-  <nav class="top-nav" aria-label="Primary navigation">
-    <div class="nav-inner">
-      <a class="brand" href="#top">APPROX-IA <span>Workshop 2027</span></a>
-      <div class="nav-links">
-        <a href="#call">Call</a>
-        <a href="#questions">Questions</a>
-        <a href="#topics">Topics</a>
-        <a href="#submission">Submission</a>
-        <a href="#dates">Important dates</a>
-        <a href="#network">APPROX-IA research network</a>
-        <a href="#organizers">Contact</a>
-        <a class="nav-submit" href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">Submit</a>
-      </div>
-    </div>
-  </nav>
+<body id="top">
 
-  <header id="top">
-    <div class="header-inner">
-      <span class="eyebrow">Call for Abstracts</span>
-      <div class="hero">
-        <div>
-          <h1>APPROX-IA 2027: Approximation, Human Judgments and LLMs</h1>
-          <p class="subtitle">Thematic workshop — Maison des Sciences de l’Homme de Bordeaux, France</p>
-          <div class="actions">
-            <a class="button" href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">Submit via OpenReview</a>
-            <a class="button secondary" href="#submission">Submission guidelines</a>
+  <div class="topbar">
+    <nav class="container nav">
+      <a class="brand" href="#top">APPROX-IA 2027</a>
+      <a href="#call">Call</a>
+      <a href="#questions">Relevant questions</a>
+      <a href="#topics">Topics</a>
+      <a href="#submission">Submission</a>
+      <a href="#dates">Important dates</a>
+      <a href="#network">APPROX-IA research network</a>
+      <a href="#organizers">Contact</a>
+      <a class="submit" href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">Submit</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Approximation, Human Judgments and LLMs</h1>
+
+        <p class="lead">
+          Thematic workshop on approximative meaning as a test case for comparing
+          human interpretation and large language model behavior.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary" href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">Submit via OpenReview</a>
+          <a href="#submission">Submission guidelines</a>
+        </div>
+
+        <div class="meta">
+          <div>
+            <strong>Dates</strong>
+            25–26 March 2027
+          </div>
+          <div>
+            <strong>Venue</strong>
+            Maison des Sciences de l’Homme de Bordeaux
+          </div>
+          <div>
+            <strong>Format</strong>
+            Half-day on 26 March
           </div>
         </div>
-
-        <figure class="art-card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Landscape_at_Saint-Ouen_%28Seurat%29.jpg" alt="Georges Seurat, Landscape at Saint-Ouen">
-          <figcaption class="caption">
-            Georges Seurat, <em>Landscape at Saint-Ouen</em>. The Metropolitan Museum of Art, Public Domain.
-          </figcaption>
-        </figure>
       </div>
 
-      <div class="info-grid">
-        <div class="info-card">
-          <strong>Dates</strong>
-          25–26 March 2027<br>
-          (half-day on 26 March)
-        </div>
-        <div class="info-card">
-          <strong>Venue</strong>
-          Maison des Sciences de l’Homme de Bordeaux, France
-        </div>
-        <div class="info-card">
-          <strong>Submission platform</strong>
-          <a href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">OpenReview submission page</a>
-        </div>
-      </div>
+      <figure class="hero-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Landscape_at_Saint-Ouen_%28Seurat%29.jpg" alt="Georges Seurat, Landscape at Saint-Ouen">
+        <figcaption>
+          Georges Seurat, <em>Landscape at Saint-Ouen</em>. The Metropolitan Museum of Art, Public Domain.
+        </figcaption>
+      </figure>
     </div>
   </header>
 
-  <main>
+  <main class="container">
+
     <section id="call">
       <h2>Call for Abstracts</h2>
-      <p>Natural languages make extensive use of approximative expressions: forms that describe an event, state or situation as being close to a threshold, a goal or an expected outcome, without necessarily reaching it. This domain includes scalar approximators such as <em>almost</em>, <em>nearly</em>, <em>barely</em> and <em>hardly</em>, as well as constructions expressing near-attainment, near-avoidance, unrealized outcomes or frustrated expectations, including <em>be about to</em>, <em>be on the verge of</em>, <em>come close to</em>, <em>try to</em> and <em>attempt to</em>, especially when these constructions are interpreted in contexts of non-realization, failed realization or frustrated expectation.</p>
 
-      <p>Approximatives have been studied in semantics and pragmatics as expressions involving scalar structure, contextual thresholds and non-realization. Work on <em>almost</em>, <em>barely</em> and related words in other languages has examined how speakers determine what counts as sufficiently close to a threshold, and how this judgment is affected by granularity, causal proximity and prior expectations (Nouwen 2006; Penka 2006; Gerstenberg &amp; Tenenbaum 2016). In addition, the domain of approximatives has intriguing connections to modality, intention, expectation and aspect, as shown by constructions of near-attainment, averted outcomes and frustrated expectations (Kuteva 1998; Vincent 2013; Collins 2014; Kroeger 2017; Overall 2017; Matthewson et al. 2022; Everdell &amp; Nadathur 2025).</p>
+      <div class="prose">
+        <p>Natural languages make extensive use of approximative expressions: forms that describe an event, state or situation as being close to a threshold, a goal or an expected outcome, without necessarily reaching it. This domain includes scalar approximators such as <em>almost</em>, <em>nearly</em>, <em>barely</em> and <em>hardly</em>, as well as constructions expressing near-attainment, near-avoidance, unrealized outcomes or frustrated expectations, including <em>be about to</em>, <em>be on the verge of</em>, <em>come close to</em>, <em>try to</em> and <em>attempt to</em>, especially when these constructions are interpreted in contexts of non-realization, failed realization or frustrated expectation.</p>
 
-      <p>This makes approximatives a rich test case for comparing human pragmatic judgments with the behavior of LLMs. Unlike tasks with a single correct answer, approximatives often involve graded acceptability, speaker variation and intermediate zones where meaning is neither fully true nor fully false. The central question is therefore not only whether LLMs provide the “right” interpretation, but whether their response profiles resemble those of human speakers: whether they draw similar thresholds, react to the same contextual cues, reproduce zones of agreement and disagreement, and show sensitivity to expectation, intention and causal structure.</p>
+        <p>Approximatives have been studied in semantics and pragmatics as expressions involving scalar structure, contextual thresholds and non-realization. Work on <em>almost</em>, <em>barely</em> and related words in other languages has examined how speakers determine what counts as sufficiently close to a threshold, and how this judgment is affected by granularity, causal proximity and prior expectations (Nouwen 2006; Penka 2006; Gerstenberg &amp; Tenenbaum 2016). In addition, the domain of approximatives has intriguing connections to modality, intention, expectation and aspect, as shown by constructions of near-attainment, averted outcomes and frustrated expectations (Kuteva 1998; Vincent 2013; Collins 2014; Kroeger 2017; Overall 2017; Matthewson et al. 2022; Everdell &amp; Nadathur 2025).</p>
 
-      <p>The APPROX-IA workshop brings together researchers working on approximation from different perspectives, including semantics, pragmatics, psycholinguistics, typology, cognitive modeling and LLM evaluation. The workshop uses approximatives as a test case for investigating where human interpretation and LLM behavior converge or diverge, and what these patterns reveal about pragmatic competence, model evaluation and linguistic theory.</p>
+        <p>This makes approximatives a rich test case for comparing human pragmatic judgments with the behavior of LLMs. Unlike tasks with a single correct answer, approximatives often involve graded acceptability, speaker variation and intermediate zones where meaning is neither fully true nor fully false. The central question is therefore not only whether LLMs provide the “right” interpretation, but whether their response profiles resemble those of human speakers: whether they draw similar thresholds, react to the same contextual cues, reproduce zones of agreement and disagreement, and show sensitivity to expectation, intention and causal structure.</p>
+
+        <p>The APPROX-IA workshop brings together researchers working on approximation from different perspectives, including semantics, pragmatics, psycholinguistics, typology, cognitive modeling and LLM evaluation. The workshop uses approximatives as a test case for investigating where human interpretation and LLM behavior converge or diverge, and what these patterns reveal about pragmatic competence, model evaluation and linguistic theory.</p>
+      </div>
     </section>
 
     <section id="questions">
       <h2>Relevant questions</h2>
-      <ul>
+
+      <ul class="questions">
         <li>Do humans and LLMs draw similar thresholds for expressions such as <em>almost</em>, <em>nearly</em>, <em>barely</em> and <em>hardly</em>?</li>
         <li>Do LLMs reproduce human zones of agreement, disagreement and uncertainty?</li>
         <li>How do humans and LLMs interpret near-attainment, near-avoidance and unrealized outcomes, as in constructions such as <em>be about to</em>, <em>be on the verge of</em>, <em>try to</em> or <em>attempt to</em>?</li>
@@ -678,111 +459,98 @@
 
     <section id="topics">
       <h2>Topics</h2>
-      <p>We invite contributions that use approximatives, broadly construed, to investigate the relation between human interpretation and LLM behavior. Submissions may be theoretical, experimental, cross-linguistic, computational or methodological.</p>
-      <ul>
-        <li>human judgments and LLM behavior on approximative expressions;</li>
-        <li>scalar approximators such as <em>almost</em>, <em>nearly</em>, <em>barely</em> and <em>hardly</em> and related words across languages;</li>
-        <li>verbal approximatives and constructions expressing near-attainment, near-avoidance, unrealized outcomes or frustrated expectations;</li>
-        <li>conative, frustrative, avertive and apprehensional constructions;</li>
-        <li>prospective or proximal-future expressions, and related phenomena involving thresholds, partial realization, failed outcomes or contextual margins;</li>
-        <li>approximation and granularity: thresholds, margins, contextual modulation;</li>
-        <li>experimental pragmatics of approximation: acceptability, forced choice, graded ratings, response variability;</li>
-        <li>LLM pragmatics and evaluation: pragmatic reasoning, robustness, calibration, non-literal meaning;</li>
-        <li>human–LLM comparison protocols: prompt design, reproducibility, stability across runs, agreement/disagreement analyses;</li>
-        <li>quantitative measures: surprisal, semantic similarity, alignment/misalignment indices, modeling of response profiles;</li>
-        <li>cross-linguistic variation in approximative expressions and human–LLM alignment;</li>
-        <li>resources, datasets, guidelines, code and reproducible releases.</li>
+
+      <ul class="topics">
+        <li>human judgments and LLM behavior on approximative expressions</li>
+        <li>scalar approximators such as <em>almost</em>, <em>nearly</em>, <em>barely</em> and <em>hardly</em></li>
+        <li>verbal approximatives and constructions expressing near-attainment, near-avoidance and unrealized outcomes</li>
+        <li>conative, frustrative, avertive and apprehensional constructions</li>
+        <li>prospective or proximal-future expressions</li>
+        <li>approximation and granularity: thresholds, margins, contextual modulation</li>
+        <li>experimental pragmatics of approximation</li>
+        <li>LLM pragmatics and evaluation</li>
+        <li>human–LLM comparison protocols</li>
+        <li>prompt design and reproducibility</li>
+        <li>stability across runs and model families</li>
+        <li>surprisal, semantic similarity and response-profile modeling</li>
+        <li>cross-linguistic variation</li>
+        <li>resources, datasets, guidelines and code</li>
       </ul>
     </section>
 
     <section id="submission">
       <h2>Submission and review process</h2>
-      <p>Submissions should be anonymized and uploaded as PDF files through <a href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">OpenReview</a>.</p>
-      <p>The review process will be double-blind. Abstracts should therefore not include author names, affiliations, acknowledgements or any other self-identifying information. References to the authors’ own previous work should be made in the third person whenever necessary.</p>
-      <p>Submissions should fall into one of the following categories:</p>
-      <ul>
-        <li><strong>Long abstracts:</strong> 2–4 pages, including references — oral presentation</li>
-        <li><strong>Short abstracts:</strong> 1 page — poster</li>
-        <li><strong>Demos / resources:</strong> 1–2 pages — tools, datasets, protocols</li>
-      </ul>
-      <p>Accepted contributions will be assigned to oral presentations, posters, lightning talks or demos by the organizers, depending on the format and the workshop programme.</p>
-      <p>Selected contributions will be invited, after the workshop, to submit a full article to a planned special issue in a specialized journal. This publication process will be handled separately from the workshop submission and review process.</p>
+
+      <div class="prose">
+        <p>Submissions should be anonymized and uploaded as PDF files through <a href="https://openreview.net/group?id=APPROX-IA/2027/Workshop" target="_blank" rel="noopener">OpenReview</a>. The review process will be double-blind. Abstracts should therefore not include author names, affiliations, acknowledgements or any other self-identifying information.</p>
+
+        <div class="submission-types">
+          <p><strong>Long abstracts:</strong> 2–4 pages, including references — oral presentation</p>
+          <p><strong>Short abstracts:</strong> 1 page — poster</p>
+          <p><strong>Demos / resources:</strong> 1–2 pages — tools, datasets, protocols</p>
+        </div>
+
+        <p>Accepted contributions will be assigned to oral presentations, posters, lightning talks or demos by the organizers, depending on the format and the workshop programme.</p>
+
+        <p>Selected contributions will be invited, after the workshop, to submit a full article to a planned special issue in a specialized journal. This publication process will be handled separately from the workshop submission and review process.</p>
+      </div>
     </section>
 
     <section id="dates">
       <h2>Important dates</h2>
-      <ul class="timeline">
-        <li><span>Submission deadline</span><strong>15 January 2027</strong></li>
-        <li><span>Notification</span><strong>10 February 2027</strong></li>
-        <li><span>Workshop</span><strong>25–26 March 2027</strong></li>
-      </ul>
-    </section>
 
+      <div class="dates">
+        <div class="date"><span>Submission deadline</span><strong>15 January 2027</strong></div>
+        <div class="date"><span>Notification</span><strong>10 February 2027</strong></div>
+        <div class="date"><span>Workshop</span><strong>25–26 March 2027</strong></div>
+      </div>
+    </section>
 
     <section id="network">
       <h2>APPROX-IA research network</h2>
-      <p>The APPROX-IA project brings together researchers working on approximation, human judgments and language-model behavior. Current participants include:</p>
 
-      <div class="people-grid">
-        <div class="person">
-          <strong>Nabil Hathout</strong>
-          <span>CLLE, CNRS &amp; Université Toulouse Jean Jaurès</span>
-        </div>
-
-        <div class="person">
-          <strong>Jacques Jayez</strong>
-          <span>ENS de Lyon</span>
-        </div>
-
-        <div class="person">
-          <strong>Despina Oikonomou</strong>
-          <span>Department of Philology, University of Crete</span>
-        </div>
-
-        <div class="person">
-          <strong>Sebastian Padó</strong>
-          <span>Institute for Natural Language Processing (IMS), University of Stuttgart</span>
-        </div>
-
-        <div class="person">
-          <strong>Christopher Piñón</strong>
-          <span>STL — Savoirs, Textes, Langage, Université de Lille</span>
-        </div>
-
-        <div class="person">
-          <strong>Lucia Tovena</strong>
-          <span>Université Paris Cité</span>
-        </div>
-
-        <div class="person">
-          <strong>Thomas Weskott</strong>
-          <span>University of Göttingen</span>
-        </div>
+      <div class="network">
+        <div class="person"><strong>Nabil Hathout</strong><span>CLLE, CNRS &amp; Université Toulouse Jean Jaurès</span></div>
+        <div class="person"><strong>Jacques Jayez</strong><span>ENS de Lyon</span></div>
+        <div class="person"><strong>Despina Oikonomou</strong><span>Department of Philology, University of Crete</span></div>
+        <div class="person"><strong>Sebastian Padó</strong><span>Institute for Natural Language Processing (IMS), University of Stuttgart</span></div>
+        <div class="person"><strong>Christopher Piñón</strong><span>STL — Savoirs, Textes, Langage, Université de Lille</span></div>
+        <div class="person"><strong>Lucia Tovena</strong><span>Université Paris Cité</span></div>
+        <div class="person"><strong>Thomas Weskott</strong><span>University of Göttingen</span></div>
       </div>
     </section>
 
     <section id="organizers">
       <h2>Organizers / contact</h2>
-      <div class="organizer">
-        <strong>Basilio Calderone</strong>
-        CLLE, CNRS &amp; Université Bordeaux Montaigne<br>
-        <a href="mailto:basilio.calderone@cnrs.fr">basilio.calderone@cnrs.fr</a>
-      </div>
-      <div class="organizer">
-        <strong>Fabio Del Prete</strong>
-        CLLE, CNRS &amp; Université Toulouse Jean Jaurès<br>
-        <a href="mailto:fabio.del-prete@univ-tlse2.fr">fabio.del-prete@univ-tlse2.fr</a>
-      </div>
-      <div class="organizer">
-        <strong>Fabienne Martin</strong>
-        Utrecht Institute of Linguistics OTS, Utrecht University<br>
-        <a href="mailto:f.e.martin@uu.nl">f.e.martin@uu.nl</a>
+
+      <div class="organizers">
+        <div class="organizer">
+          <strong>Basilio Calderone</strong>
+          <div class="aff">CLLE, CNRS &amp; Université Bordeaux Montaigne</div>
+          <a href="mailto:basilio.calderone@cnrs.fr">basilio.calderone@cnrs.fr</a>
+        </div>
+
+        <div class="organizer">
+          <strong>Fabio Del Prete</strong>
+          <div class="aff">CLLE, CNRS &amp; Université Toulouse Jean Jaurès</div>
+          <a href="mailto:fabio.del-prete@univ-tlse2.fr">fabio.del-prete@univ-tlse2.fr</a>
+        </div>
+
+        <div class="organizer">
+          <strong>Fabienne Martin</strong>
+          <div class="aff">Utrecht Institute of Linguistics OTS, Utrecht University</div>
+          <a href="mailto:f.e.martin@uu.nl">f.e.martin@uu.nl</a>
+        </div>
       </div>
     </section>
+
   </main>
 
   <footer>
-    <p>APPROX-IA 2027 — Approximation, Human Judgments and LLMs.</p>
+    <div class="container">
+      APPROX-IA 2027 — Approximation, Human Judgments and LLMs.
+    </div>
   </footer>
+
 </body>
 </html>
